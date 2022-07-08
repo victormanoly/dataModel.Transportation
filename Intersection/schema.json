@@ -1,6 +1,6 @@
 {"$schema": "http://json-schema.org/schema",
     "$schemaVersion": "0.0.1",
-    "$id": "https://github.com/victormanoly/dataModel.Transportation/blob/master/Intersection/schema.json",
+    "$id": "https://raw.githubusercontent.com/victormanoly/dataModel.Transportation/master/Intersection/schema.json",
     "title": "Smart Data models - Intersection",
     "modelTags": "",
     "description": "This model a particular intersection.",
@@ -228,10 +228,10 @@
             }
           },
           "pedestrian":{
-            "$ref": "https://github.com/victormanoly/dataModel.Transportation/blob/master/Pedestrian/scheme.json"
+            "$ref": "https://raw.githubusercontent.com/victormanoly/dataModel.Transportation/master/Pedestrian/schema.json"
           },
           "cyclist":{
-            "$ref": "https://github.com/victormanoly/dataModel.Transportation/blob/master/Cyclist/scheme.json"
+            "$ref": "https://raw.githubusercontent.com/victormanoly/dataModel.Transportation/master/Cyclist/schema.json"
           },  
           "vehicle": {
             "$ref": "https://smart-data-models.github.io/dataModel.Transportation/Vehicle/schema.json",
