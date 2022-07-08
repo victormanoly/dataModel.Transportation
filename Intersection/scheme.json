@@ -1,0 +1,315 @@
+{"$schema": "http://json-schema.org/schema",
+    "$schemaVersion": "0.0.1",
+    "$id": "https://smart-data-models.github.io/dataModel.Transportation/Intersection/schema.json",
+    "title": "Smart Data models - Intersection",
+    "modelTags": "",
+    "description": "This model a particular intersection.",
+    "type": "object",
+    "required": [
+      "id",
+      "type"
+    ],
+    "allOf": [
+      {
+        "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/GSMA-Commons"
+      },
+      {
+        "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons"
+      },
+      {
+        "properties": {
+          "type": {
+            "type": "string",
+            "enum": [
+              "Intersection"
+            ],
+            "description": "Property. Model:'https://schema.org/Text'."
+          },
+          "intersectionType": {
+            "type": "string",
+            "enum": [
+              "three-leg",
+              "four-leg",
+              "multi-leg"
+            ],
+            "description": "Property. Type of intersection from the point of view of the number of road segments."
+          },
+          "intersectionSignal": {
+            "type": "string",
+            "enum": [
+              "signalized",
+              "non-signalized"
+            ],
+            "description": "Property. Type of intersection from the point of view of the signalization."
+          },
+          "road": {
+            "type": "object",
+            "description": "Property. Road features.",
+            "properties": {
+              "refRoadSegment": {
+                "$ref": "https://smart-data-models.github.io/dataModel.Transportation/Road/schema.json#/allOf/3/properties/refRoadSegment",
+                "description": "Property. Road segments which define this road. Model:'https://schema.org/URL'. Relationship. List of references to entities of type RoadSegment"
+              },
+              "roadClass": {
+                "$ref": "https://smart-data-models.github.io/dataModel.Transportation/Road/schema.json#/allOf/3/properties/roadClass",
+                "description": "Property. The classification of this road. Model:'https://schema.org/Text'. Enum:'motorway, primary, residential, secondary, service, tertiary, trunk, unclassified"
+              },
+              "surface": {
+                "type": "string",
+                "description": "Property. Road surface.",
+                "enum": [
+                  "asphalt",
+                  "concrete",
+                  "composite",
+                  "chipseal",
+                  "gravel",
+                  "paver"
+                ]
+              },
+              "roughness": {
+                "type": "number",
+                "description": "Property. Value of international roughness index (IRI). Units: meter per kilometer (m/km).",
+                "minimum": 0
+              },
+              "friction": {
+                "type": "number",
+                "description": "Property. Value of friction coefficient, the value is related to the type of road material. Minimum related to friction on ice. Maximum related to friction on asphalt or concrete (dry). Ref:https://ieeexplore.ieee.org/document/6940633",
+                "minimum": 0.1,
+                "maximum": 0.9
+              }
+            }
+          },
+          "roadSegment": {
+            "type": "object",
+            "description": "Property. Road segment features.",
+            "properties": {
+              "refRoad": {
+                "$ref": "https://smart-data-models.github.io/dataModel.Transportation/RoadSegment/schema.json#/allOf/3/properties/refRoad",
+                "description": "Property. Road to which this road segment belongs to."
+              },
+              "allowedVehicleType": {
+                "$ref": "https://smart-data-models.github.io/dataModel.Transportation/RoadSegment/schema.json#/allOf/3/properties/allowedVehicleType",
+                "description": "Property. Vehicle type(s) allowed to transit through this road segment."
+              },
+              "totalLaneNumber": {
+                "$ref": "https://smart-data-models.github.io/dataModel.Transportation/RoadSegment/schema.json#/allOf/3/properties/totalLaneNumber",
+                "description": "Property. Total number of lanes offered by this road segment."
+              },
+              "length": {
+                "type": "number",
+                "const": 100,
+                "description": "Property. Total length of this road segment in meters. Constant. Units:Meter (m)."
+              },
+              "maximumAllowedSpeed": {
+                "$ref": "https://smart-data-models.github.io/dataModel.Transportation/RoadSegment/schema.json#/allOf/3/properties/maximumAllowedSpeed",
+                "description": "Property. Maximum allowed speed while transiting this road segment. Model:'https://schema.org/Number'. Units:Kilometer per hour (Km/h)."
+              },
+              "minimumAllowedSpeed": {
+                "$ref": "https://smart-data-models.github.io/dataModel.Transportation/RoadSegment/schema.json#/allOf/3/properties/minimumAllowedSpeed",
+                "description": "Property. Minimum allowed speed while transiting this road segment. Model:'https://schema.org/Number'. Units:Kilometer per hour (Km/h)."
+              },
+              "width": {
+                "$ref": "https://smart-data-models.github.io/dataModel.Transportation/RoadSegment/schema.json#/allOf/3/properties/width",
+                "description": "Property. Road's segment width.. Model:'https://schema.org/Number'. Units:Meter (m)"
+              },
+              "laneUsage": {
+                "$ref": "https://smart-data-models.github.io/dataModel.Transportation/RoadSegment/schema.json#/allOf/3/properties/laneUsage",
+                "description": "Property. This attribute can be used to convey specific parameters describing each lane. Model:'https://schema.org/Text'. It must contain a string per road segment lane. The element 0 of the array must contain the information of lane 1, and so on. Format of the referred string must be: <lane_direction>, <lane_minimumAllowedSpeed>, <lane_maximumAllowedSpeed>, <lane_maximumAllowedHeight>, <lane_maximumAllowedWeight>. <lane_direction> is a text string with the following allowed values: `forward`. The lane is currently used in the `forwards` direction. `backward`. The lane is currently used in the `backwards` direction. The only mandatory parameter is `lane_direction`. If not specified, the rest of parameters can be assumed to be equal to those specified at entity level."
+              },
+              "category": {
+                "$ref": "https://smart-data-models.github.io/dataModel.Transportation/RoadSegment/schema.json#/allOf/3/properties/category",
+                "description": "Property. Allows conveying extra characteristics of a road segment. Model:'https://schema.org/Text'. Enum:'oneway, toll, link'.  `oneway`: Flags whether the road segment can only be used in one direction. If not present it means road segment can be used in both directions (forwards and backwards). See also [http://wiki.openstreetmap.org/wiki/Key:oneway](http://wiki.openstreetmap.org/wiki/Key:oneway). `toll` : Flags whether the road segment is under toll fees. `link` : Flags whether this road segment is an auxiliary link segment for exiting or entering a road. See [https://wiki.openstreetmap.org/wiki/Tag:highway%3Dmotorway_link](https://wiki.openstreetmap.org/wiki/Tag:highway%3Dmotorway_link). Any other value meaningful to an application."
+              },
+              "status": {
+                "$ref": "https://smart-data-models.github.io/dataModel.Transportation/RoadSegment/schema.json#/allOf/3/properties/status",
+                "description": "Property. Specific driving conditions on the road segment. Use statusDescription for additional information. Enum: ‘open, closed, limited’.  `open`: the roadsegment can be used in full intended capacity, `closed`: no traffic is possible, e.g. due to roadworks, an open bridge or lock, or any other event preventing traffic. `limited`: traffic is possible, but not in the full capacity."
+              }
+            }
+          },
+          "bikeLane": {
+            "type": "object",
+            "description": "Property. Bike Lane",
+            "properties": {
+              "refRoadSegment": {
+                "$ref": "https://smart-data-models.github.io/dataModel.Transportation/Road/schema.json#/allOf/3/properties/refRoadSegment",
+                "description": "Property. Road segments which define this road. Model:'https://schema.org/URL'. Relationship. List of references to entities of type RoadSegment"
+              },
+              "laneLength": {
+                "type": "number",
+                "cte": 100,
+                "description": "Property. Total length of this bike lane in meters. Constant. Units:Meter (m)."
+              },
+              "laneWidth": {
+                "type": "number",
+                "description": "Property. Model:'https://schema.org/Number'. Indicates the width of the lane."
+              },
+              "laneOccupancy": {
+                "type": "number",
+                "description": "Property. Model:'https://schema.org/Number'. Indicates the number of vehicles circulating on the lane."
+              }
+            }
+          },
+          "pedestrianLane": {
+            "type": "object",
+            "description": "Property. Pedestrian Lane",
+            "properties": {
+              "refRoadSegment": {
+                "$ref": "https://smart-data-models.github.io/dataModel.Transportation/ItemFlowObserved/schema.json#/allOf/2/properties/refRoadSegment",
+                "description": "Property. Road segments which define this road. Model:'https://schema.org/URL'. Relationship. List of references to entities of type RoadSegment"
+              },
+              "laneLength": {
+                "type": "number",
+                "cte": 100,
+                "description": "Property. Total length of this bike lane in meters. Constant. Units:Meter (m)."
+              },
+              "laneWidth": {
+                "type": "number",
+                "description": "Property. Model:'https://schema.org/Number'. Indicates the width of the lane."
+              },
+              "laneOccupancy": {
+                "type": "number",
+                "description": "Property. Model:'https://schema.org/Number'. Indicates the number of vehicles circulating on the lane."
+              },
+              "direction": {
+                "type": "string",
+                "enum": [
+                  "inbound",
+                  "outbound"
+                ],
+                "description": "Property. Usual direction of travel in the walkway referred by this observation with respect to the intersection center"
+              }
+            }
+          },
+          "intersectionStatus": {
+            "type": "string",
+            "enum": [
+              "normal",
+              "accident"
+            ],
+            "description": "Property. Intersection status operation"
+          },
+          "intersetionAccident": {
+            "$ref": "https://smart-data-models.github.io/dataModel.Transportation/RoadAccident/schema.json",
+            "description": "A road accident description with causes and aftermath"
+          },
+          "geoLocation": {
+            "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons/properties/location"
+          },
+          "currentWeather": {
+            "type": "object",
+            "description": "Property. Current weather information corresponding to this observation.",
+            "properties": {
+              "temperature": {
+                "$ref": "https://smart-data-models.github.io/dataModel.Weather/weather-schema.json#/definitions/Weather-AirConditions/properties/temperature"
+              },
+              "humidity": {
+                "$ref": "https://smart-data-models.github.io/dataModel.Weather/weather-schema.json#/definitions/Weather-AirConditions/properties/relativeHumidity"
+              },
+              "visibility": {
+                "$ref": "https://smart-data-models.github.io/dataModel.Weather/weather-schema.json#/definitions/Weather-Commons/allOf/1/properties/visibility"
+              },
+              "windDirection": {
+                "$ref": "https://smart-data-models.github.io/dataModel.Weather/weather-schema.json#/definitions/Weather-Commons/allOf/1/properties/windDirection"
+              },
+              "windSpeed": {
+                "$ref": "https://smart-data-models.github.io/dataModel.Weather/weather-schema.json#/definitions/Weather-Commons/allOf/1/properties/windSpeed"
+              },
+              "gustSpeed": {
+                "$ref": "https://smart-data-models.github.io/dataModel.Weather/weather-schema.json#/definitions/Weather-Commons/allOf/1/properties/gustSpeed"
+              },
+              "precipitation": {
+                "$ref": "https://smart-data-models.github.io/dataModel.Weather/WeatherForecast/schema.json#/allOf/3/properties/precipitation",
+                "description": "Property. Current amount of water rain registered. Units:Liters per square meter."
+              },
+              "waterLevel": {
+                "$ref": "https://smart-data-models.github.io/dataModel.Weather/WeatherObserved/schema.json#/allOf/3/properties/streamGauge",
+                "description": "Property. Model:'https://schema.org/Number'. The water level surface elevation observed by Hydrometric measurement sensors. Units:centimeters."
+              }
+            }
+          },
+          "pedestrian":{
+            "type": "object",
+            "description": "Property. Model a particular vulneravel agent",
+            "properties":{
+              "pedestrianType": {
+                "type": "string",
+                "enum": [
+                  "child",
+                  "adult",
+                  "elderly"
+                ],
+              "description": "Property. Type of pedestrian from the point of view of its age classification"
+              },
+              "location": {
+                "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons/properties/location"
+              },
+              "speed": {
+                "oneOf": [
+                  {
+                    "type": "number",
+                    "minimum": 0
+                  },
+                  {
+                    "type": "number",
+                    "minimum": -1,
+                    "maximum": -1
+                  }
+                ],
+              "description": "Property. Denotes the magnitude of the horizontal component of the vehicle's current velocity and is specified in Kilometers per Hour. If provided, the value of the speed attribute must be a non-negative real number. `-1` MAY be used if speed is transiently unknown for some reason. Model:'https://schema.org/Number'. Units:'Km/h'"
+              },
+              "heading": {
+                "oneOf": [
+                  {
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 360
+                  },
+                  {
+                    "type": "number",
+                    "const": -1
+                  }
+                ],
+              "description": "Property. Denotes the direction of travel of the pedestrian and is specified in decimal degrees, where 0 <= `heading` < 360, counting clockwise relative to the true north. If the pedestrian is stationary (i.e. the value of the `speed` attribute is `0`), then the value of the heading attribute must be equal to `-1`. Model:'https://schema.org/Number'. Units:'Degree'"
+              },
+              "bearing": {
+                "type": "number",
+                "description": "Property. Model:'https://schema.org/Number'. Gives the pedestrian GPS angle measured in a clockwise direction from the True North. SameAs 'bearing' field from GTFS Realtime message-Position(https://developers.google.com/transit/gtfs-realtime/reference#message-position)"
+              }
+            }
+          },  
+          "vehicle": {
+            "$ref": "https://smart-data-models.github.io/dataModel.Transportation/Vehicle/schema.json",
+            "description": "Property. Vehicle."
+          },
+          "municipalityInfo": {
+            "type": "object",
+            "description": "Property. Model:'https://schema.org/Text. Municipality information corresponding to this observation.",
+            "properties": {
+              "cityID": {
+                "type": "string",
+                "description": "Property. Model:'https://schema.org/Text'. City ID corresponding to this observation."
+              },
+              "stateName": {
+                "type": "string",
+                "description": "Property. Model:'https://schema.org/Text'. Name of the state corresponding to this observation."
+              },
+              "cityName": {
+                "type": "string",
+                "description": "Property. Model:'https://schema.org/Text'. City name corresponding to this observation."
+              },
+              "zoneName": {
+                "type": "string",
+                "description": "Property. Model:'https://schema.org/Text'. Zone name corresponding to this observation."
+              },
+              "zoneID": {
+                "type": "string",
+                "description": "Property. Model:'https://schema.org/Text'. Zone ID corresponding to this observation."
+              }
+            }
+          }
+        }
+      }
+    ],
+    "derivedFrom": "",
+    "license": ""
+}
