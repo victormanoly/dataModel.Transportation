@@ -1,7 +1,7 @@
 {
     "$schema": "http://json-schema.org/schema",
     "$schemaVersion": "0.0.1",
-    "$id": "https://smart-data-models.github.io/dataModel.Transportation/Pedestrian/schema.json",
+    "$id": "https://github.com/victormanoly/dataModel.Transportation/blob/master/Pedestrian/scheme.json",
     "title": "Smart Data models - Pedestrian",
     "modelTags": "",
     "description": "This model a particular pedestrian.",
