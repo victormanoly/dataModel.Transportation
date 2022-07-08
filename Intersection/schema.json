@@ -1,6 +1,6 @@
 {"$schema": "http://json-schema.org/schema",
     "$schemaVersion": "0.0.1",
-    "$id": "https://github.com/victormanoly/dataModel.Transportation/blob/master/Intersection/scheme.json",
+    "$id": "https://github.com/victormanoly/dataModel.Transportation/blob/master/Intersection/schema.json",
     "title": "Smart Data models - Intersection",
     "modelTags": "",
     "description": "This model a particular intersection.",
