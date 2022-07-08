@@ -1,0 +1,45 @@
+--- 
+components: 
+  schemas: 
+
+    # This is the base definition of a building
+    Building: 
+      
+      allOf:
+        - $ref: "https://raw.githubusercontent.com/victormanoly/dataModel.Transportation/master/Intersection/schema.json"
+    
+
+    Pedestrian: 
+
+      allOf:
+        - $ref: "https://raw.githubusercontent.com/victormanoly/dataModel.Transportation/master/Pedestrian/schema.json"
+      
+    Cyclist:
+
+      allOf:
+        - $ref: "https://raw.githubusercontent.com/victormanoly/dataModel.Transportation/master/Cyclist/schema.json"
+      
+    Vehicle:
+    
+      allOf:
+        - $ref: "https://smart-data-models.github.io/dataModel.Transportation/Vehicle/schema.json"   
+      
+info: 
+  description: "Model Definitions for an Intersection Smart System"
+  title: Smart Intersection Data Models
+  version: "1.0.0"
+openapi: "3.0.0"
+
+
+# These paths are merely representative.
+paths: 
+  /ngsi-ld/v1/entities: 
+    get: 
+      responses: 
+        ? "200"
+        : 
+          description:  OK
+          content: 
+            application/ld+json: 
+              schema: 
+                type: object
