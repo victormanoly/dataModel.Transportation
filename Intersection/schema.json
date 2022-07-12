@@ -47,7 +47,7 @@
             "description": "Property. Road features.",
             "properties": {
               "refRoadSegment": {
-                "$ref": "https://smart-data-models.github.io/dataModel.Transportation/Road/schema.json#/allOf/3/properties/refRoadSegment",
+                "$ref": "https://smart-data-models.github.io/dataModel.Transportation/Road/schema.json#allOf/3/properties/refRoadSegment",
                 "description": "Property. Road segments which define this road. Model:'https://schema.org/URL'. Relationship. List of references to entities of type RoadSegment"
               },
               "roadClass": {
