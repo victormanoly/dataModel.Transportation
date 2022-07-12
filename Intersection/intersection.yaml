@@ -1,0 +1,12 @@
+---
+Intersection:
+  allOf: 
+    - 
+      $ref: "./ngsi-ld.yaml#/Common"
+  description: This entity contains a harmonised description of a Building. This entity is associated with the vertical segments of smart cities, smart transportation and related IoT applications.
+  properties:
+    type:
+      type: string
+      enum[] s: intersection
+      description: "Property. Model:'https://schema.org/Text'." 
+    
