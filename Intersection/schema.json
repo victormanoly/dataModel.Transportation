@@ -118,8 +118,21 @@
             "description": "Property. Pedestrian Lane",
             "properties": {
               "refRoadSegment": {
-                "$ref": "https://raw.githubusercontent.com/victormanoly/dataModel.Transportation/master/ItemFlowObserved/schema.json#/allOf/2/properties/refRoadSegment",
-                "description": "Property. Road segments which define this road. Model:'https://schema.org/URL'. Relationship. List of references to entities of type RoadSegment"
+                "anyOf": [
+                    {
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 256,
+                        "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$",
+                        "description": "Property. Identifier format of any NGSI entity"
+                    },
+                    {
+                        "type": "string",
+                        "format": "uri",
+                        "description": "Property. Identifier format of any NGSI entity"
+                    }
+                ],
+                "description": "Relationship. Concerned road segment on which the observation has been made"
               },
               "laneLength": {
                 "type": "number",
