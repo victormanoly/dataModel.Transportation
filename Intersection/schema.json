@@ -183,7 +183,24 @@
                 "$ref": "https://smart-data-models.github.io/dataModel.Weather/weather-schema.json#/definitions/Weather-AirConditions/properties/relativeHumidity"
               },
               "visibility": {
-                "$ref": "https://smart-data-models.github.io/dataModel.Weather/weather-schema.json#/definitions/Weather-Commons/allOf/properties/visibility"
+                "description": "Property. Model:'http://schema.org/Text'. Categories of visibility",
+                "anyOf": [
+                  {
+                    "type": "string",
+                    "enum": [
+                      "veryPoor",
+                      "poor",
+                      "moderate",
+                      "good",
+                      "veryGood",
+                      "excellent"
+                    ]
+                  },
+                  {
+                    "type": "number",
+                    "minimum": 0
+                  }
+                ]
               },
               "windDirection": {
                 "$ref": "https://smart-data-models.github.io/dataModel.Weather/weather-schema.json#/definitions/Weather-Commons/allOf/1/properties/windDirection"
