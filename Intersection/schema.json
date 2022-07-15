@@ -203,21 +203,29 @@
                 ]
               },
               "windDirection": {
-                "$ref": "https://smart-data-models.github.io/dataModel.Weather/weather-schema.json#/definitions/Weather-Commons/allOf/1/properties/windDirection"
+                "type": "number",
+                "description": "Property. Model:'http://schema.org/Number'. Direction of the wind bet",
+                "minimum": 0,
+                "maximum": 360
               },
               "windSpeed": {
-                "$ref": "https://smart-data-models.github.io/dataModel.Weather/weather-schema.json#/definitions/Weather-Commons/allOf/1/properties/windSpeed"
+                "type": "number",
+                "description": "Property. Model:'http//schema.org/Number'. Intensity of the wind",
+                "minimum": 0
               },
               "gustSpeed": {
-                "$ref": "https://smart-data-models.github.io/dataModel.Weather/weather-schema.json#/definitions/Weather-Commons/allOf/1/properties/gustSpeed"
+                "type": "number",
+                "description": "Property. A sudden burst of high-speed wind over the observed average wind speed lasting only for a few seconds."
               },
               "precipitation": {
-                "$ref": "https://smart-data-models.github.io/dataModel.Weather/WeatherForecast/schema.json#/allOf/3/properties/precipitation",
-                "description": "Property. Current amount of water rain registered. Units:Liters per square meter."
+                "type": "number",
+                "minimum": 0,
+                "description": "Property. Model:'https://schema.org/Number'. Amount of water rain expected. Units:'Liters per square meter'."
               },
               "waterLevel": {
-                "$ref": "https://smart-data-models.github.io/dataModel.Weather/WeatherObserved/schema.json#/allOf/3/properties/streamGauge",
-                "description": "Property. Model:'https://schema.org/Number'. The water level surface elevation observed by Hydrometric measurement sensors. Units:centimeters."
+                "type": "number",
+                "minimum": 0,
+                "description": "Property. Model:'https://schema.org/Number'. The water level surface elevation observed by Hydrometric measurement sensors, namely a [Stream Gauge](https://en.wikipedia.org/wiki/Stream_gauge) expressed in centimeters. Units:'centimeters'"
               }
             }
           },
