@@ -229,12 +229,9 @@
               }
             }
           },
-          "pedestrian":{
-            "$ref": "https://raw.githubusercontent.com/victormanoly/dataModel.Transportation/master/Pedestrian/schema.json"
-          },
-          "cyclist":{
-            "$ref": "https://raw.githubusercontent.com/victormanoly/dataModel.Transportation/master/Cyclist/schema.json"
-          },  
+          "vru":{
+            "$ref": "https://raw.githubusercontent.com/victormanoly/dataModel.Transportation/master/VRU/schema.json"
+          }, 
           "vehicle": {
             "$ref": "https://smart-data-models.github.io/dataModel.Transportation/Vehicle/schema.json",
             "description": "Property. Vehicle."
