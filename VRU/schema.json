@@ -1,10 +1,10 @@
 {
     "$schema": "http://json-schema.org/schema",
     "$schemaVersion": "0.0.1",
-    "$id": "https://raw.githubusercontent.com/victormanoly/dataModel.Transportation/master/Pedestrian/schema.json",
-    "title": "Smart Data models - Pedestrian",
+    "$id": "https://raw.githubusercontent.com/victormanoly/dataModel.Transportation/master/VRU/schema.json",
+    "title": "Smart Data models - VRU",
     "modelTags": "",
-    "description": "This model a particular pedestrian.",
+    "description": "This model a particular VRU.",
     "type": "object",
     "required": [
       "id",
@@ -23,7 +23,7 @@
           "type": {
             "type": "string",
             "enum": [
-              "Pedestrian"
+              "VRU"
             ],
             "description": "Property. Model:'https://schema.org/Text'. Example of definition of a numerical attribute"
           },
