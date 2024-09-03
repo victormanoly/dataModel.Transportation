@@ -42,6 +42,7 @@
           },
           "vruType": {
             "type": "string",
+            "description": "Property. Group of pedestrians",
             "enum": [
               "pedestrian",
               "bicyclist",
@@ -49,8 +50,7 @@
               "skater",
               "rider",
               "animal"
-            ],
-            "description": "Property. Group of pedestrians"
+            ] 
           },
           "location": {
             "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons/properties/location"
