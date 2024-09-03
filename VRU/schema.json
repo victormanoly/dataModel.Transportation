@@ -27,9 +27,6 @@
             ],
             "description": "Property. Model:'https://schema.org/Text'. Example of definition of a numerical attribute"
           },
-          "id":{
-            "type": "number"  
-          },
           "vruGroup": {
             "type": "string",
             "description": "Property. Group of pedestrians",
