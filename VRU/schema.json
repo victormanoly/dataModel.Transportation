@@ -36,7 +36,7 @@
               "child",
               "adult",
               "elderly",
-              "disabledPeople",
+              "disabledPeople"
             ],
             "description": "Property. Group of pedestrians"
           },
@@ -48,7 +48,7 @@
               "motorcyclist",
               "skater",
               "rider",
-              "animal",
+              "animal"
             ],
             "description": "Property. Group of pedestrians"
           },
