@@ -75,88 +75,6 @@
               }
             }
           },
-          "roadSegment": {
-            "type": "object",
-            "description": "Property. Road segment features.",
-            "allOf": [
-              {"$ref": "https://smart-data-models.github.io/dataModel.Transportation/RoadSegment/schema.json"
-              }
-            ],
-            "properties": {
-              "length": {
-                "type": "number",
-                "const": 100,
-                "description": "Property. Total length of this road segment in meters. Constant. Units:Meter (m)."
-              }
-            }
-          },
-          "bikeLane": {
-            "type": "object",
-            "description": "Property. Bike Lane",
-            "allOf": [
-              {"$ref": "https://smart-data-models.github.io/dataModel.Transportation/Road/schema.json"
-              }
-            ],
-            "properties": {
-              "laneLength": {
-                "type": "number",
-                "cte": 100,
-                "description": "Property. Total length of this bike lane in meters. Constant. Units:Meter (m)."
-              },
-              "laneWidth": {
-                "type": "number",
-                "description": "Property. Model:'https://schema.org/Number'. Indicates the width of the lane."
-              },
-              "laneOccupancy": {
-                "type": "number",
-                "description": "Property. Model:'https://schema.org/Number'. Indicates the number of vehicles circulating on the lane."
-              }
-            }
-          },
-          "pedestrianLane": {
-            "type": "object",
-            "description": "Property. Pedestrian Lane",
-            "properties": {
-              "refRoadSegment": {
-                "anyOf": [
-                    {
-                        "type": "string",
-                        "minLength": 1,
-                        "maxLength": 256,
-                        "pattern": "^[\\w\\-\\.\\{\\}\\$\\+\\*\\[\\]`|~^@!,:\\\\]+$",
-                        "description": "Property. Identifier format of any NGSI entity"
-                    },
-                    {
-                        "type": "string",
-                        "format": "uri",
-                        "description": "Property. Identifier format of any NGSI entity"
-                    }
-                ],
-                "description": "Relationship. Concerned road segment on which the observation has been made"
-              },
-              "laneLength": {
-                "type": "number",
-                "cte": 100,
-                "description": "Property. Total length of this bike lane in meters. Constant. Units:Meter (m)."
-              },
-              "laneWidth": {
-                "type": "number",
-                "description": "Property. Model:'https://schema.org/Number'. Indicates the width of the lane."
-              },
-              "laneOccupancy": {
-                "type": "number",
-                "description": "Property. Model:'https://schema.org/Number'. Indicates the number of vehicles circulating on the lane."
-              },
-              "direction": {
-                "type": "string",
-                "enum": [
-                  "inbound",
-                  "outbound"
-                ],
-                "description": "Property. Usual direction of travel in the walkway referred by this observation with respect to the intersection center"
-              }
-            }
-          },
           "intersectionStatus": {
             "type": "string",
             "enum": [
@@ -236,11 +154,11 @@
             "$ref": "https://smart-data-models.github.io/dataModel.Transportation/Vehicle/schema.json",
             "description": "Property. Vehicle."
           },
-          "municipalityInfo": {
+          "administrativeArea": {
             "type": "object",
             "description": "Property. Model:'https://schema.org/Text. Municipality information corresponding to this observation.",
             "properties": {
-              "cityID": {
+              "trafficCenterID": {
                 "type": "string",
                 "description": "Property. Model:'https://schema.org/Text'. City ID corresponding to this observation."
               },
