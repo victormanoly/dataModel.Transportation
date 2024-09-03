@@ -27,18 +27,37 @@
             ],
             "description": "Property. Model:'https://schema.org/Text'. Example of definition of a numerical attribute"
           },
-          "pedestrianType": {
+          "id":{
+            "type": "char"  
+          },
+          "vruGroup": {
             "type": "string",
             "enum": [
               "child",
               "adult",
               "elderly"
+              "disabledPeople"
             ],
-            "description": "Property. Type of pedestrian from the point of view of its age classification"
+            "description": "Property. Group of pedestrians"
+          },
+          "vruType": {
+            "type": "string",
+            "enum": [
+              "pedestrian",
+              "bicyclist",
+              "motorcyclist"
+              "skater"
+              "rider"
+              "animal"
+            ],
+            "description": "Property. Group of pedestrians"
           },
           "location": {
             "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons/properties/location"
           },
+          "laneID": {
+            "type": "int"
+          }
           "speed": {
             "oneOf": [
               {
@@ -67,53 +86,20 @@
             ],
             "description": "Property. Denotes the direction of travel of the pedestrian and is specified in decimal degrees, where 0 <= `heading` < 360, counting clockwise relative to the true north. If the pedestrian is stationary (i.e. the value of the `speed` attribute is `0`), then the value of the heading attribute must be equal to `-1`. Model:'https://schema.org/Number'. Units:'Degree'"
           },
-          "bearing": {
-            "type": "number",
-            "description": "Property. Model:'https://schema.org/Number'. Gives the pedestrian GPS angle measured in a clockwise direction from the True North. SameAs 'bearing' field from GTFS Realtime message-Position(https://developers.google.com/transit/gtfs-realtime/reference#message-position)"
-          },
-          "zoneName": {
-            "type": "string",
-            "description": "Property. Model:'https://schema.org/Text'. Zone name of the entity corresponding to this observation"
-          },
           "observationDateTime": {
             "type": "string",
             "format": "date-time",
             "description": "Property. Model:'https://schema.org/DateTime'. Last reported time of observation"
           },
-          "reportID": {
-            "type": "string",
-            "description": "Property. Model:'https://schema.org/Text'. Unique Id assigned for the issue or report or feedback or transaction corresponding to this observation."
+          "acceleration": {
+            "type": "number"    
           },
-          "municipalityInfo": {
-            "type": "object",
-            "description": "Property. Model:'https://schema.org/Text. Municipality information corresponding to this observation.",
-            "properties": {
-              "district": {
-                "type": "string",
-                "description": "Property. Model:'https://schema.org/Text'. District name corresponding to this observation."
-              },
-              "cityID": {
-                "type": "string",
-                "description": "Property. Model:'https://schema.org/Text'. City ID corresponding to this observation."
-              },
-              "stateName": {
-                "type": "string",
-                "description": "Property. Model:'https://schema.org/Text'. Name of the state corresponding to this observation."
-              },
-              "cityName": {
-                "type": "string",
-                "description": "Property. Model:'https://schema.org/Text'. City name corresponding to this observation."
-              },
-              "zoneName": {
-                "type": "string",
-                "description": "Property. Model:'https://schema.org/Text'. Zone name corresponding to this observation."
-              },
-              "zoneID": {
-                "type": "string",
-                "description": "Property. Model:'https://schema.org/Text'. Zone ID corresponding to this observation."
-              }
-            }
-          }
+          "width": {
+            "type": "number"    
+          },
+          "length": {
+            "type": "number"    
+          },
         }
       }
     ],
