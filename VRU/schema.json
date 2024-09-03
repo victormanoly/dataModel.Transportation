@@ -59,6 +59,7 @@
             "type": "int"
           },
           "speed": {
+            "description": "Property. Denotes the magnitude of the horizontal component of the vru's current velocity and is specified in Kilometers per Hour.",
             "oneOf": [
               {
                 "type": "number",
@@ -69,8 +70,7 @@
                 "minimum": -1,
                 "maximum": -1
               }
-            ],
-            "description": "Property. Denotes the magnitude of the horizontal component of the vru's current velocity and is specified in Kilometers per Hour. If provided, the value of the speed attribute must be a non-negative real number. `-1` MAY be used if speed is transiently unknown for some reason. Model:'https://schema.org/Number'. Units:'Km/h'"
+            ]   
           },
           "heading": {
             "oneOf": [
