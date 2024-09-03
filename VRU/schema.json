@@ -28,7 +28,7 @@
             "description": "Property. Model:'https://schema.org/Text'. Example of definition of a numerical attribute"
           },
           "id":{
-            "type": "char"  
+            "type": "number"  
           },
           "vruGroup": {
             "type": "string",
@@ -56,7 +56,7 @@
             "$ref": "https://smart-data-models.github.io/data-models/common-schema.json#/definitions/Location-Commons/properties/location"
           },
           "laneID": {
-            "type": "int"
+            "type": "number"
           },
           "speed": {
             "description": "Property. Denotes the magnitude of the horizontal component of the vru's current velocity and is specified in Kilometers per Hour.",
