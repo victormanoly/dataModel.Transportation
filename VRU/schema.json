@@ -35,8 +35,8 @@
             "enum": [
               "child",
               "adult",
-              "elderly"
-              "disabledPeople"
+              "elderly",
+              "disabledPeople",
             ],
             "description": "Property. Group of pedestrians"
           },
@@ -45,10 +45,10 @@
             "enum": [
               "pedestrian",
               "bicyclist",
-              "motorcyclist"
-              "skater"
-              "rider"
-              "animal"
+              "motorcyclist",
+              "skater",
+              "rider",
+              "animal",
             ],
             "description": "Property. Group of pedestrians"
           },
