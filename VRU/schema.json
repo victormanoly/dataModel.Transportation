@@ -32,13 +32,13 @@
           },
           "vruGroup": {
             "type": "string",
+            "description": "Property. Group of pedestrians",
             "enum": [
               "child",
               "adult",
               "elderly",
               "disabledPeople"
-            ],
-            "description": "Property. Group of pedestrians"
+            ]
           },
           "vruType": {
             "type": "string",
