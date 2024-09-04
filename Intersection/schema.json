@@ -154,6 +154,10 @@
             "$ref": "https://smart-data-models.github.io/dataModel.Transportation/Vehicle/schema.json",
             "description": "Property. Vehicle."
           },
+          "roadsideunit": {
+            "$ref": "https://smart-data-models.github.io/dataModel.Transportation/roadSideUnit/schema.json",
+            "description": "Property. RoadSideUnit."
+          },
           "administrativeArea": {
             "type": "object",
             "description": "Property. Model:'https://schema.org/Text. Municipality information corresponding to this observation.",
